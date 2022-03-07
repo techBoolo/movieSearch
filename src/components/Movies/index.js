@@ -8,7 +8,7 @@ const Movies = ({movies}) => {
   return (
     <Grid container>
       {
-        movies.length > 0 
+        movies?.length > 0 
           ? (
             movies.map(movie => (
               <Grid key={movie.imdbID} item xs={12} sm={6} md={4}>

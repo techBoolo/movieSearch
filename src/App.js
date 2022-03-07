@@ -1,30 +1,16 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Navbar from './components/Navbar/';
 import Search from './components/Search/';
 import Movies from './components/Movies/';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
 const App = () => {
+  const [ movies, setMovies ] = useState([]);
+  const [ searchTerm, setSearchTerm ] = useState('');
 
-  const movies = [{
-        "Title": "Italian Spiderman",
-        "Year": "2007",
-        "imdbID": "tt2705436",
-        "Type": "movie",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BYjFhN2RjZTctMzA2Ni00NzE2LWJmYjMtNDAyYTllOTkyMmY3XkEyXkFqcGdeQXVyNTA0OTU0OTQ@._V1_SX300.jpg"
-      },
-        {
-            "Title": "Italian Spiderman",
-            "Year": "2007",
-            "imdbID": "tt2705437",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BYjFhN2RjZTctMzA2Ni00NzE2LWJmYjMtNDAyYTllOTkyMmY3XkEyXkFqcGdeQXVyNTA0OTU0OTQ@._V1_SX300.jpg"
-      }
-  ]
-
-  const search = 'spiderman';
-  const searchMovie = async () => {
+  console.log(movies);
+  const searchMovie = async (search) => {
+    console.log(search);
     const response = await fetch(
       `${process.env.REACT_APP_MOVIE_ROOT_URL}?apikey=${process.env.REACT_APP_MOVIE_APIKEY}&s=${search}`,
       {
@@ -33,22 +19,18 @@ const App = () => {
         }
       }
     );
-    const movies = await response.json()
-    console.log(movies);
+    const fetchedMovies = await response.json()
+    setMovies(fetchedMovies.Search);
   }
 
   useEffect(() => {
-  //  searchMovie(); 
-  }, [])
+    searchMovie(searchTerm); 
+  }, [searchTerm])
   return (
     <>
-      <Box sx={{display: 'flex', alignItems: 'center', 
-          justifyContent: 'center', px: 2, bgcolor: '#786a6a', 
-          width: 1, height: '120px' }}>
-        <Typography variant='h5' sx={{ color: '#fff' }}>Movies</Typography>
-      </Box>
+      <Navbar />
       <Container maxWidth='lg'>
-        <Search />
+        <Search setSearchTerm={setSearchTerm} />
         <Movies movies={movies}/>
       </Container>
     </>
