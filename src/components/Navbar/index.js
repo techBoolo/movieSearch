@@ -1,5 +1,6 @@
 import  Box from '@mui/material/Box';
 import  Typography from '@mui/material/Typography';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 
 const Navbar = (props) => {
 
@@ -7,7 +8,7 @@ const Navbar = (props) => {
     <Box sx={{display: 'flex', alignItems: 'center', 
         justifyContent: 'center', px: 2, bgcolor: '#786a6a', 
         width: 1, height: '60px' }}>
-      <Typography variant='h6' sx={{ color: '#fff' }}>Movies</Typography>
+        <LocalMoviesIcon fontSize='large' sx={{ color: '#f4f4f4' }}/>
     </Box>
   );
 };
