@@ -1,5 +1,4 @@
 import  Box from '@mui/material/Box';
-import  Typography from '@mui/material/Typography';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 
 const Navbar = (props) => {

@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from './components/Navbar/';
 import Search from './components/Search/';
 import Movies from './components/Movies/';
+import Social from './components/Social/';
 import Container from '@mui/material/Container';
 
 const App = () => {
@@ -31,10 +32,11 @@ const App = () => {
     <>
       <CssBaseline />
       <Navbar />
-      <Container maxWidth='lg'>
+      <Container maxWidth='lg' sx={{ minHeight: '100vh' }}>
         <Search setSearchTerm={setSearchTerm} />
         <Movies movies={movies}/>
       </Container>
+      <Social />
     </>
   );
 }
