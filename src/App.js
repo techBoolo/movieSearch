@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+
 import Navbar from './components/Navbar/';
 import Search from './components/Search/';
 import Movies from './components/Movies/';
@@ -8,7 +10,6 @@ const App = () => {
   const [ movies, setMovies ] = useState([]);
   const [ searchTerm, setSearchTerm ] = useState('');
 
-  console.log(movies);
   const searchMovie = async (search) => {
     console.log(search);
     const response = await fetch(
@@ -28,6 +29,7 @@ const App = () => {
   }, [searchTerm])
   return (
     <>
+      <CssBaseline />
       <Navbar />
       <Container maxWidth='lg'>
         <Search setSearchTerm={setSearchTerm} />

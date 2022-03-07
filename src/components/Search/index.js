@@ -22,19 +22,19 @@ const Search = ({setSearchTerm}) => {
           size='small'
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
-          placeholder='Search'
-          sx={{ outline: 'none', bgcolor: 'transparent',
+          placeholder='Search by movie title'
+          sx={{ 
             '& .MuiOutlinedInput-root': {
               '& fieldset': { 
                 borderColor: 'transparent',
-              }
-            },
+              },
             '&:hover fieldset': { 
               borderColor: 'transparent',
             },
             '&.Mui-focused fieldset': { 
               borderColor: 'transparent',
             }
+            },
           }}
         />
     </Box>

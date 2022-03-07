@@ -18,7 +18,7 @@ const Movie = ({ movie }) => {
       <Box component='img'
         src={ movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/250' }
         alt={`${movie.Title}`}
-        sx={{width: 1, my: 2 }}
+        sx={{width: 1, my: 2, resizeMode: 'contain' }}
       />
 
       <Typography variant='h6' sx={{ px: 1 }}>{ movie.Title}</Typography>
