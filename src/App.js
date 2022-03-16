@@ -12,7 +12,6 @@ const App = () => {
   const [ searchTerm, setSearchTerm ] = useState('');
 
   const searchMovie = async (search) => {
-    console.log(search);
     const response = await fetch(
       `${process.env.REACT_APP_MOVIE_ROOT_URL}?apikey=${process.env.REACT_APP_MOVIE_APIKEY}&s=${search}`,
       {
